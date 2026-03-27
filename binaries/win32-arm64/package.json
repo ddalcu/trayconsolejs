@@ -1,6 +1,6 @@
 {
-  "name": "@trayjs/win32-arm64",
-  "version": "0.0.10",
+  "name": "@agent-orcha/trayconsole-win32-arm64",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "os": [
     "win32"

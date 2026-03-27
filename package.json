@@ -1,15 +1,11 @@
 {
-  "name": "@trayjs/trayjs",
-  "version": "0.0.10",
-  "description": "Cross-platform system tray library for Node.js",
+  "name": "@agent-orcha/trayconsolejs",
+  "version": "0.1.0",
+  "description": "Cross-platform system tray + log console window for Node.js",
   "license": "Apache-2.0",
-  "homepage": "https://www.npmjs.com/package/@trayjs/trayjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pavelfeldman/trayjs.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pavelfeldman/trayjs/issues"
+    "url": "https://github.com/ddalcu/trayconsolejs.git"
   },
   "type": "module",
   "exports": {
@@ -26,16 +22,15 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^22",
     "typescript": "^5.7"
   },
   "optionalDependencies": {
-    "@trayjs/linux-x64": "0.0.10",
-    "@trayjs/linux-arm64": "0.0.10",
-    "@trayjs/darwin-x64": "0.0.10",
-    "@trayjs/darwin-arm64": "0.0.10",
-    "@trayjs/win32-x64": "0.0.10",
-    "@trayjs/win32-arm64": "0.0.10"
+    "@agent-orcha/trayconsole-linux-x64": "0.1.0",
+    "@agent-orcha/trayconsole-linux-arm64": "0.1.0",
+    "@agent-orcha/trayconsole-darwin-x64": "0.1.0",
+    "@agent-orcha/trayconsole-darwin-arm64": "0.1.0",
+    "@agent-orcha/trayconsole-win32-x64": "0.1.0",
+    "@agent-orcha/trayconsole-win32-arm64": "0.1.0"
   }
 }

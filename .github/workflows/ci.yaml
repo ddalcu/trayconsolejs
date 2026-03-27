@@ -1,10 +1,7 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -57,7 +54,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.pkg }}
-          path: binaries/${{ matrix.pkg }}/bin/tray.exe
+          path: binaries/${{ matrix.pkg }}/bin/trayconsole.exe
 
   build-linux:
     strategy:

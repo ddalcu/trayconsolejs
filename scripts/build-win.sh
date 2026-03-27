@@ -7,7 +7,7 @@ set -euo pipefail
 PKG="${1:?Usage: build-win.sh <pkg>}"
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-OUT="$(cygpath -w "$ROOT_DIR/binaries/$PKG/bin/tray.exe")"
+OUT="$(cygpath -w "$ROOT_DIR/binaries/$PKG/bin/trayconsole.exe")"
 SRC="$(cygpath -w "$ROOT_DIR/src-win")"
 
 mkdir -p "$ROOT_DIR/binaries/$PKG/bin"
@@ -42,6 +42,6 @@ fi
   "$SRC/main.c" "$SRC/cJSON.c" \
   /Fe:"$OUT" \
   /link /SUBSYSTEM:WINDOWS /MACHINE:"$MACHINE" /OPT:REF /OPT:ICF \
-  user32.lib shell32.lib gdi32.lib kernel32.lib advapi32.lib
+  user32.lib shell32.lib gdi32.lib kernel32.lib advapi32.lib comctl32.lib
 
 echo "Built $(wc -c < "$OUT" | tr -d ' ') bytes → $OUT"

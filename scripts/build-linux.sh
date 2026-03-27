@@ -7,7 +7,7 @@ set -euo pipefail
 PKG="${1:?Usage: build-linux.sh <pkg>}"
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-OUT="$ROOT_DIR/binaries/$PKG/bin/tray"
+OUT="$ROOT_DIR/binaries/$PKG/bin/trayconsole"
 SRC="$ROOT_DIR/src-linux"
 
 mkdir -p "$(dirname "$OUT")"

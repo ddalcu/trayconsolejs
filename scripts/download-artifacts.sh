@@ -6,9 +6,8 @@ set -euo pipefail
 #
 # Usage:
 #   ./scripts/download-artifacts.sh <run-id>
-#   ./scripts/download-artifacts.sh 21808342397
 
-REPO="pavelfeldman/trayjs"
+REPO="ddalcu/trayconsolejs"
 PACKAGES=(linux-x64 linux-arm64 darwin-x64 darwin-arm64 win32-x64 win32-arm64)
 
 if [[ $# -lt 1 ]]; then
@@ -41,7 +40,7 @@ done
 
 # Make Unix binaries executable.
 for pkg in "${PACKAGES[@]}"; do
-  bin="binaries/$pkg/bin/tray"
+  bin="binaries/$pkg/bin/trayconsole"
   [[ -f "$bin" ]] && chmod +x "$bin"
 done
 

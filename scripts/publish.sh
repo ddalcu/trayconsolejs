@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Publishes all @trayjs packages to npm.
+# Publishes all @agent-orcha/trayconsole packages to npm.
 # Native platform packages are published first, then the main package.
 #
 # Usage:
@@ -20,12 +20,12 @@ NATIVE_PACKAGES=(linux-x64 linux-arm64 darwin-x64 darwin-arm64 win32-x64 win32-a
 missing=()
 for pkg in "${NATIVE_PACKAGES[@]}"; do
   if [[ "$pkg" == win32-* ]]; then
-    bin="$ROOT_DIR/binaries/$pkg/bin/tray.exe"
+    bin="$ROOT_DIR/binaries/$pkg/bin/trayconsole.exe"
   else
-    bin="$ROOT_DIR/binaries/$pkg/bin/tray"
+    bin="$ROOT_DIR/binaries/$pkg/bin/trayconsole"
   fi
   if [[ ! -f "$bin" ]]; then
-    missing+=("binaries/$pkg/bin/tray${pkg##win32-*}")
+    missing+=("$bin")
   fi
 done
 
@@ -38,12 +38,12 @@ fi
 
 # Publish native packages (cd into each to avoid workspace resolution).
 for pkg in "${NATIVE_PACKAGES[@]}"; do
-  echo "Publishing @trayjs/$pkg..."
+  echo "Publishing @agent-orcha/trayconsole-$pkg..."
   (cd "$ROOT_DIR/binaries/$pkg" && npm publish $DRY_RUN --access public)
 done
 
 # Publish main package.
-echo "Publishing @trayjs/trayjs..."
+echo "Publishing @agent-orcha/trayconsolejs..."
 (cd "$ROOT_DIR" && npm publish $DRY_RUN --access public)
 
 echo "Done."
