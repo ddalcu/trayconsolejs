@@ -120,7 +120,7 @@ jobs:
           find binaries -type f | sort
 
       - name: Build TypeScript
-        run: npm ci && npm run build
+        run: npm install --ignore-scripts --omit=optional && npm run build
 
       - name: Publish platform packages
         env:
