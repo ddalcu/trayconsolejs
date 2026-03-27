@@ -89,12 +89,15 @@ jobs:
     if: ${{ inputs.publish }}
     needs: [build-darwin, build-win, build-linux]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://registry.npmjs.org
 
       - name: Download all artifacts
@@ -125,10 +128,10 @@ jobs:
         run: |
           for pkg in linux-x64 linux-arm64 darwin-x64 darwin-arm64 win32-x64 win32-arm64; do
             echo "Publishing @agent-orcha/trayconsole-$pkg..."
-            (cd binaries/$pkg && npm publish --access public)
+            (cd binaries/$pkg && npm publish --provenance --access public)
           done
 
       - name: Publish main package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+        run: npm publish --provenance --access public
