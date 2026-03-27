@@ -49,6 +49,10 @@ function resolveIcon(icon: Icon): Buffer {
 }
 
 function getBinaryPath(): string {
+  // Allow explicit override (e.g. for SEA builds where the binary is extracted elsewhere)
+  if (process.env.TRAYCONSOLE_BIN)
+    return process.env.TRAYCONSOLE_BIN;
+
   const key = `${process.platform}-${process.arch}`;
   if (process.env.DEV)
     return join(__dirname, '..', 'binaries', key, 'bin', BIN_NAME);
