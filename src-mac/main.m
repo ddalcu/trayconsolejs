@@ -54,6 +54,8 @@ static NSImage *processImage(NSData *data) {
 // Log Window
 // ---------------------------------------------------------------------------
 
+static BOOL gParentDead = NO;
+
 @interface LogWindowDelegate : NSObject <NSWindowDelegate>
 @end
 
@@ -71,7 +73,6 @@ static NSImage *processImage(NSData *data) {
 @end
 
 static LogWindowDelegate *gLogWindowDelegate;
-static BOOL gParentDead = NO;
 
 static void createLogWindow(void) {
     NSRect frame = NSMakeRect(200, 200, 800, 500);
